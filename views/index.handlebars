@@ -1,0 +1,62 @@
+<div class="container">
+
+	<div class="row">
+
+		<div class="col-md-12">
+		
+			<h1>Eat-Da-Burger!</h1>
+
+			<img src="./assets/images/burger.png" alt="burger">
+
+			<h2>Enter the type of burger you would like to add and then click submit!</h2>
+
+			<form class="create-update-form" action="/" method="POST" onsubmit="return validateForm()" name="burger-form">
+				<div class="form-group">
+					<label for="burger-input">Enter a burger:</label>
+					<input type="text" id="burger-input" name="name" size="50" required>
+					<button type="submit" id="submit">Submit</button>
+				</div>
+			</form>
+
+		</div>
+
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-6" id="burger-div">
+			{{#each burgers}}
+				{{#unless this.devoured}}
+					<div class="row burger-row">
+						<div class="col-md-9">
+							<p class="burger">{{this.burger_name}}</p>
+						</div>
+						<div class="col-md-3">
+							<form action="/{{this.id}}?_method=PUT" method="POST">
+				      			<input type="hidden" name="devoured" value="false">
+				      			<button type="submit" class="btn-devour">DEVOUR IT!</button>
+			        		</form>
+			        	</div>
+					</div>
+				{{/unless}}
+			{{/each}}
+		</div>
+
+		<div class="col-md-6" id="devoured-div">
+			{{#each burgers}}
+				{{#if this.devoured}}
+					<div class="row devoured-row">
+						<div class="col-md-9">
+							<p class="devoured">{{this.burger_name}}</p>
+						</div>
+					</div>
+				{{/if}}
+			{{/each}}
+		</div>
+
+	</div>
+
+</div>
+
+<!--Linking external javascript file to be used for front-end form valuation -->
+<script type="text/javascript" src="/assets/javascript/script.js"></script>

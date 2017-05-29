@@ -1,0 +1,23 @@
+body {
+	text-align: center;
+	background-color: #E55200;
+}
+
+h1, h2, .form-group {
+	margin-bottom: 20px;
+}
+
+.burger, .devoured {
+	padding: 5px;
+	background-color: green;
+	font-weight: bold;
+}
+
+.devoured {
+	opacity: 0.5;
+}
+
+img {
+	width: 200px;
+	height: 200px;
+}
