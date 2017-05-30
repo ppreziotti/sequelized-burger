@@ -1,7 +1,7 @@
 {
   "name": "eat-da-burger",
   "version": "1.0.0",
-  "description": "interactive app utilizing MySQL, Node, Express, Handlebars, and a custom ORM",
+  "description": "interactive app utilizing MySQL, Node, Express, Handlebars, and Sequelize",
   "main": "burger.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

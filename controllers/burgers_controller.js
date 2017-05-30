@@ -1,31 +1,35 @@
 var express = require('express');
-var burger = require('../models/burger.js');
+var db = require('../models');
 
 var router = express.Router();
 
 // Get route for home page - display all burgers
 router.get('/', function(req, res) {
-	burger.selectAll(function(data) {
-		var hbsObj = {
-			burgers: data
-		};
-		console.log(hbsObj);
-		res.render('index', hbsObj);
+	db.Burger.findAll({}).then(function(dbBurger) {
+		console.log(dbBurger);
 	});
 });
 
 // Post route for creating a burger
 router.post('/', function(req, res) {
-	burger.insertOne("burger_name", req.body.name, function() {
+	db.Burger.create({burger_name: req.body.name}).then(function(dbBurger) {
+		console.log(dbBurger);
 		res.redirect('/');
 	});
 });
 
 // Put route for updating the devoured status of a burger
 router.put('/:id', function(req, res) {
-	var condition = "id = " + req.params.id;
+	var burgerId = req.params.id;
 	console.log(condition);
-	burger.updateOne({devoured: true}, condition, function() {
+	db.Burger.update({
+		devoured: true
+	}, {
+		where: {
+			id: burgerId
+		}
+	}).then(function(dbBurger) {
+		console.log(dbBurger);
 		res.redirect('/');
 	});
 });
