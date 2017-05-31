@@ -4,19 +4,13 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
-				len: [6,50];
+				len: [6,50]
 			}
 		},
 		devoured: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false
 		}
-		return Burger;
 	});
+	return Burger;
 }
-
-// Syncing with the database
-Burger.sync();
-
-// Making the burger model available to be used in the burger controller file
-module.exports = Burger;

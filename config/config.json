@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "sequelize_burger_db",
-    "host": "127.0.0.1",
+    "password": "",
+    "database": "sequelized_burger_db",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
