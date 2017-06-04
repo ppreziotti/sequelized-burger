@@ -10,7 +10,7 @@
 
 			<h2>Enter the type of burger you would like to add and then click submit!</h2>
 
-			<form class="create-update-form" action="/" method="POST" onsubmit="return validateForm()" name="burger-form">
+			<form class="create-update-form" action="/" method="POST" onsubmit="return validateBurger()" name="burger-form">
 				<div class="form-group">
 					<label for="burger-input">Enter a burger:</label>
 					<input type="text" id="burger-input" name="name" size="50" required>
@@ -32,7 +32,7 @@
 							<p class="burger">{{this.burger_name}}</p>
 						</div>
 						<div class="col-md-3">
-							<form action="/{{this.id}}?_method=PUT" method="POST">
+							<form action="/{{this.id}}?_method=PUT" method="POST" onsubmit="return validateCustomer()" name="customer-form">
 				      			<input type="hidden" name="devoured" value="false">
 				      			<input type="text" id="customer-input" name="customer" size="10" placeholder="Customer?" required>
 				      			<button type="submit" class="btn-devour">DEVOUR IT!</button>
@@ -48,7 +48,7 @@
 				{{#if this.devoured}}
 					<div class="row devoured-row">
 						<div class="col-md-9">
-							<p class="devoured">{{this.CustomerId}} devoured the {{this.burger_name}}</p>
+							<p class="devoured">{{this.CustomerName}} devoured the {{this.burger_name}}</p>
 						</div>
 					</div>
 				{{/if}}

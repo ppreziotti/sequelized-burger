@@ -31,11 +31,10 @@ router.put('/:id', function(req, res) {
 		}
 	}).then(function() {
 		db.Customer.create({
-			customer_name: req.body.customer
+			name: req.body.customer
 		}).then(function(customer) {
-			console.log(customer.dataValues.id);
 			db.Burger.update({
-				CustomerId: customer.dataValues.id
+				CustomerName: customer.dataValues.name
 			}, {
 				where: {
 					id: burgerId

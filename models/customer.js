@@ -1,7 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
 	var Customer = sequelize.define("Customer", {
-		customer_name: {
+		name: {
 			type: DataTypes.STRING,
+			primaryKey: true,
 			allowNull: false,
 			unique: true,
 			validate: {
@@ -12,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
 		{
 			classMethods: {
 				associate: function(models) {
-					Customer.hasMany(models.Burger, {});
+					Customer.hasOne(models.Burger, {});
 				}
 			}
 		}
