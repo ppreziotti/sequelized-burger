@@ -29,8 +29,21 @@ router.put('/:id', function(req, res) {
 		where: {
 			id: burgerId
 		}
-	}).then(function(dbBurger) {
-		res.redirect('/');
+	}).then(function() {
+		db.Customer.create({
+			customer_name: req.body.customer
+		}).then(function(customer) {
+			console.log(customer.dataValues.id);
+			db.Burger.update({
+				CustomerId: customer.dataValues.id
+			}, {
+				where: {
+					id: burgerId
+				}
+			}).then(function(dbBurger) {
+				res.redirect('/');
+			});
+		});
 	});
 });
 

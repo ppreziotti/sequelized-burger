@@ -34,6 +34,7 @@
 						<div class="col-md-3">
 							<form action="/{{this.id}}?_method=PUT" method="POST">
 				      			<input type="hidden" name="devoured" value="false">
+				      			<input type="text" id="customer-input" name="customer" size="10" placeholder="Customer?" required>
 				      			<button type="submit" class="btn-devour">DEVOUR IT!</button>
 			        		</form>
 			        	</div>
@@ -47,7 +48,7 @@
 				{{#if this.devoured}}
 					<div class="row devoured-row">
 						<div class="col-md-9">
-							<p class="devoured">{{this.burger_name}}</p>
+							<p class="devoured">{{this.CustomerId}} devoured the {{this.burger_name}}</p>
 						</div>
 					</div>
 				{{/if}}
